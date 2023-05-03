@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.EmpMapper">
+    <select id="list" resultType="com.example.pojo.Emp">
+        select * from emp
+        <where>
+            <if test="name!=null and name!=''">
+                name like concat('%',#{name},'%')
+            </if>
+            <if test="gender!=null">
+                and gender = #{gender}
+            </if>
+            <if test="begin!=null and end!=null">
+                and entrydate between #{begin} and #{end}
+            </if>
+        </where>
+        order by update_time desc
+    </select>
+
+    <delete id="delete">
+        delete from emp
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="update">
+        update emp
+        <set>
+            username=#{username},
+            name= #{name},
+            password=#{password},
+            gender=#{gender},
+            <if test="image!=null"> image=#{image},</if>
+            <if test="deptId!=null">dept_id=#{deptId},</if>
+            <if test="entrydate!=null">entrydate=#{entrydate},</if>
+            <if test="job!=null">job=#{job},</if>
+            update_time = #{updateTime}
+        </set>
+        where id=#{id}
+    </update>
+
+</mapper>

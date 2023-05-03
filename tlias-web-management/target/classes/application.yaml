@@ -1,0 +1,30 @@
+#mysql数据库配置
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/tlias
+    username: root
+    password: 1
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 100MB
+
+#mybatis日志输出配置
+mybatis:
+  configuration:
+    logImpl: org.apache.ibatis.logging.stdout.StdOutImpl
+    mapUnderscoreToCamelCase: true
+
+#阿里云oss存储配置
+aliyun:
+  oss:
+    endpoint: xxxxx
+    accessKeyId: xxxxxxxxx
+    accessKeySecret: xxxxx
+    bucketName: xxxx
+
+#日志输出等级配置
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
