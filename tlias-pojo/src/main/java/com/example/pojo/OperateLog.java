@@ -14,7 +14,7 @@ public class OperateLog {
     private Integer id;
     private Integer operateUser;
     private LocalDateTime operateTime;
-    private String clasName;
+    private String className;
     private String methodName;
     private String methodParams;
     private String returnValue;

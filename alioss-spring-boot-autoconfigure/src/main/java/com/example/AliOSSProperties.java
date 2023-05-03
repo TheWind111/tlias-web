@@ -3,10 +3,13 @@ package com.example;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+//配置阿里云oss的相关信息
+//从application.yaml中读取
 @ConfigurationProperties(prefix = "aliyun.oss")
 public class AliOSSProperties {
     private String endpoint;
     // 阿里云账号AccessKey拥有所有API的访问权限，风险很高。强烈建议您创建并使用RAM用户进行API访问或日常运维，请登录RAM控制台创建RAM用户。
+//    手动标注
 //    @Value("${aliyun.oss.accessKeyId}")
     private String accessKeyId;
     //    @Value("${aliyun.oss.accessKeySecret}")

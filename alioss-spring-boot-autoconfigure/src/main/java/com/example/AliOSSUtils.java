@@ -11,12 +11,13 @@ import java.io.InputStream;
 import java.util.UUID;
 
 
-
+//阿里云oss工具类
 public class AliOSSUtils {
 
-
+//    阿里云oss属性配置
     private AliOSSProperties aliOSSProperties;
 
+//    给当前
     public void setAliOSSProperties(AliOSSProperties aliOSSProperties) {
         this.aliOSSProperties = aliOSSProperties;
     }
@@ -25,6 +26,7 @@ public class AliOSSUtils {
         return aliOSSProperties;
     }
 
+//    给上传文件生成新名字，上传保存至oss,返回该文件访问路径。
     public String upload(MultipartFile file) throws IOException {
         InputStream inputStream = file.getInputStream();
 
